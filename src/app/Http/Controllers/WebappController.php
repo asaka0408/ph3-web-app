@@ -11,6 +11,6 @@ class WebappController extends Controller
 {
     public function index(Request $request) {
         $base = Base::with("contents", "languages")->get();
-        return view('index', compact('base'));
+        return view('user.webapp', compact('base'));
     }
 }

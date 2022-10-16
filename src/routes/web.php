@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index', 'WebappController@index')->name('index');
+Route::get('/webapp', 'WebappController@index')->name('webapp');
