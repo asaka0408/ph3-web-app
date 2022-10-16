@@ -6,10 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Base extends Model
 {
-    public static $rules = array(
-        'name' => 'required',
-    );
-
     public function contents()
     {
         return $this->hasMany("App\Contents");

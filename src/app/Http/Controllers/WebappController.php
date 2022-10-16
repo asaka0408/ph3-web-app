@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Base;
+use App\Languages;
+use App\Contents;
 
 class WebappController extends Controller
 {
     public function index(Request $request) {
-        $bases = Base::get();
+        $base = Base::with("contents", "languages")->get();
+        return view('index', compact('base'));
     }
 }

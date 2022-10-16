@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contents extends Model
 {
-    public static $rules = array(
-        'name' => 'required',
-    );
+    public function base() {
+        return $this->belongsTo("App\Base");
+    }
 }
