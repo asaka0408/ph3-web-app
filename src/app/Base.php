@@ -20,9 +20,9 @@ class Base extends Model
 
     public function getDateTime()
     {
-        $today = Carbon::now()->format('Ym');
-        $start = $today . '01';
-        $end = $today . '31';
+        $today = Carbon::now()->format('Y');
+        $start = $today . '0601';
+        $end = $today . '0631';
 
         return DB::table('bases')
             ->selectRaw('DATE_FORMAT(created_at, "%Y%m%d") AS date')
