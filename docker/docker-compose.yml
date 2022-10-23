@@ -10,7 +10,7 @@ services:
       - ./db/var/lib/mysql:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=laravel
-      - MYSQL_USER=root
+      - MYSQL_USER=asaka
       - MYSQL_PASSWORD=password
       - MYSQL_ROOT_PASSWORD=password
     platform: linux/x86_64

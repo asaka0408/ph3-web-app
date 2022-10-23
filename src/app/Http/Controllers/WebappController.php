@@ -10,7 +10,6 @@ use App\Contents;
 class WebappController extends Controller
 {
     public function index(Request $request) {
-        $base = Base::with("contents", "languages")->get();
-        return view('user.webapp', compact('base'));
+        return view('user.webapp');
     }
 }
