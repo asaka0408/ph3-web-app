@@ -9,7 +9,7 @@ class WebappController extends Controller
 {
     public function index() {
         $this->bases = new Base();
-        $day_time = $this->bases->getDateTime();
-        return view('user.webapp', compact('day_time'));
+        $day_times = $this->bases->getDateTime();
+        return view('user.webapp', compact('day_times'));
     }
 }

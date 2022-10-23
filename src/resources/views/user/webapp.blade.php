@@ -22,6 +22,12 @@
 
 
     <main class="page_container">
+        @foreach ($day_times as $day_time)
+            <tr>
+                <td>{{ date('Y/m/d', strtotime($day_time->date)) }}</td>
+                <td>{{ $day_time->day_time }}</td>
+            </tr>
+        @endforeach
         <div id="pageBackground"></div>
         <div class="main_container">
             <section class="time_bar_graf">
