@@ -29,17 +29,17 @@
                 <ul class="time_container">
                     <li class="time_each">
                         <p class="time_each_title">Today</p><br>
-                        <p class="time_each_hours">{{$study_day_time->pluck('day_time')[0]}}</p><br>
+                        <p class="time_each_hours">{{ $study_day_time->pluck('day_time')[0] }}</p><br>
                         <p class="time_each_unit">hour</p>
                     </li>
                     <li class="time_each">
                         <p class="time_each_title">Month</p><br>
-                        <p class="time_each_hours">{{$study_month_time->pluck('day_time')[0]}}</p><br>
+                        <p class="time_each_hours">{{ $study_month_time->pluck('day_time')[0] }}</p><br>
                         <p class="time_each_unit">hour</p>
                     </li>
                     <li class="time_each">
                         <p class="time_each_title">Total</p><br>
-                        <p class="time_each_hours">{{$study_total_time->pluck('total_time')[0]}}</p><br>
+                        <p class="time_each_hours">{{ $study_total_time->pluck('total_time')[0] }}</p><br>
                         <p class="time_each_unit">hour</p>
                     </li>
                 </ul>
@@ -55,12 +55,14 @@
                         daytime_study = daytime_study.map(function(item) {
                             return item = Number(item)
                         })
-                        console.log(daytime_study);
+                        // console.log(daytime_study);
                         var ctx = document.getElementById("myBarChart");
                         var myBarChart = new Chart(ctx, {
                             type: 'bar',
                             data: {
-                                labels: ['', 2, '', 4, '', 6, '', 8, '', 10, '', 12, '', 14, '', 16, '', 18, '', 20, '', 26, '', 28,'', 30],
+                                labels: ['', 2, '', 4, '', 6, '', 8, '', 10, '', 12, '', 14, '', 16, '', 18, '', 20, '', 26, '', 28,
+                                    '', 30
+                                ],
                                 datasets: [{
                                     label: 'hours',
                                     data: daytime_study,
@@ -113,13 +115,152 @@
             <section class="sircle_graf_container">
                 <li class="sircle_graf_each">
                     <p class="sircle_graf_each_title">学習言語</p>
-                    {{-- <canvas class="sircle_graf_each_graf" id="sircleGrafLanguages">
-          </canvas> --}}
+                    <canvas class="sircle_graf_each_graf" id="sircleGrafLanguages">
+                    </canvas>
+                    <script>
+                        var dataLabelPlugin = {
+                            afterDatasetsDraw: function(chart, easing) {
+                                // To only draw at the end of animation, check for easing === 1
+                                var ctx = chart.ctx;
+
+                                chart.data.datasets.forEach(function(dataset, i) {
+                                    var dataSum = 0;
+                                    dataset.data.forEach(function(element) {
+                                        dataSum += element;
+                                    });
+
+                                    var meta = chart.getDatasetMeta(i);
+                                    if (!meta.hidden) {
+                                        meta.data.forEach(function(element, index) {
+                                            // Draw the text in black, with the specified font
+                                            ctx.fillStyle = 'rgb(255, 255, 255)';
+
+                                            var fontSize = 12;
+                                            var fontStyle = 'normal';
+                                            var fontFamily = 'Helvetica Neue';
+                                            ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+
+                                            // Just naively convert to string for now
+                                            var labelString = chart.data.labels[index];
+                                            var dataString = (Math.round(dataset.data[index] / dataSum * 1000) / 10)
+                                                .toString() + "%";
+
+                                            // Make sure alignment settings are correct
+                                            ctx.textAlign = 'center';
+                                            ctx.textBaseline = 'middle';
+
+                                            var padding = 5;
+                                            var position = element.tooltipPosition();
+                                            // ctx.fillText(labelString, position.x, position.y - (fontSize / 2) - padding);
+                                            ctx.fillText(dataString, position.x, position.y + (fontSize / 2) -
+                                                padding);
+                                        });
+                                    }
+                                });
+                            }
+                        };
+
+                        let language_time = [0, 0, 0, 0, 0, 0, 0, 0];
+                        let languages_time = '{!! json_encode($languages_time) !!}';
+                        let languages_study_time = JSON.parse(languages_time);
+                        languages_study_time.forEach(language_study_time => {
+                            const language_index = language_study_time['language_name']-1
+                            language_time[language_index] = Number(language_study_time['language_time'])
+                        }) 
+                        console.log(language_time);
+
+                        var ctx = document.getElementById("sircleGrafLanguages");
+                        var sircleGrafLanguages = new Chart(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                labels: ["HTML", "CSS", "JavaScript", "PHP", "Laravel", "SQL", "SHELL", "その他"], //データ項目のラベル
+                                datasets: [{
+                                    backgroundColor: [
+                                        "#65ccf9",
+                                        "#2d72b8",
+                                        "#204be3",
+                                        "#55bbda",
+                                        "#aea1ee",
+                                        "#654fe4",
+                                        "#412ce5",
+                                        "#291db9"
+                                    ],
+                                    data: language_time //グラフのデータ
+                                }]
+                            },
+                            options: {
+                                legend: {
+                                    position: 'bottom'
+                                },
+                                maintainAspectRatio: false,
+                                responsive: true,
+                                layout: { //レイアウトの設定
+                                    padding: {
+                                        left: 30,
+                                        right: 30,
+                                        top: 0,
+                                        bottom: 50
+                                    }
+                                }
+                            },
+                            plugins: [dataLabelPlugin],
+                        });
+                    </script>
                 </li>
                 <li class="sircle_graf_each">
                     <p class="sircle_graf_each_title">学習コンテンツ</p>
-                    {{-- <canvas class="sircle_graf_each_graf" id="sircleGrafContents">
-          </canvas> --}}
+                    <canvas class="sircle_graf_each_graf" id="sircleGrafContents">
+                    </canvas>
+                    <script>
+                        let content_time = [0, 0, 0];
+                        let content_study_time = '{!! json_encode($content_time) !!}';
+                        let contents_time_study = JSON.parse(content_study_time);
+                        contents_time_study.forEach(content_time_study => {
+                            const content_index = content_time_study['content_name']-1
+                            content_time[content_index] = Number(content_time_study['content_time'])
+                        }) 
+                        // console.log(content_time);
+
+                        var ctx = document.getElementById("sircleGrafContents");
+                        var sircleGrafContents = new Chart(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                labels: ["N予備校", "ドットインストール", "POSSE課題", ], //データ項目のラベル
+                                datasets: [{
+                                    backgroundColor: [
+                                        "#2d72b8",
+                                        "#204be3",
+                                        "#55bbda",
+                                    ],
+                                    data: content_time//グラフのデータ
+                                }]
+                            },
+                            options: {
+                                // responsive: true,
+                                legend: {
+                                    position: 'bottom',
+                                    layout: {
+                                        padding: {
+                                            top: 100,
+                                        },
+                                    }
+                                },
+                                maintainAspectRatio: false,
+                                title: {
+                                    display: true,
+                                },
+                                layout: { //レイアウトの設定
+                                    padding: {
+                                        left: 30,
+                                        right: 30,
+                                        top: 0,
+                                        bottom: 120
+                                    }
+                                }
+                            },
+                            plugins: [dataLabelPlugin],
+                        });
+                    </script>
                 </li>
             </section>
 
@@ -211,9 +352,9 @@
 
     </div>
 
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="../js/webapp.js"></script> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../js/webapp.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -59,5 +58,15 @@ class Base extends Model
         return DB::table('bases')
             ->selectRaw('SUM(time) AS total_time')
             ->get();
+    }
+
+    public function getContentsTime()
+    {
+        return DB::select('select content_name, sum(time) as content_time from bases join contents on bases.id = contents.base_id group by contents.content_name');
+    }
+
+    public function getLanguagesTime()
+    {
+        return DB::select('select language_name, sum(time) as language_time from bases join languages on bases.id = languages.base_id group by languages.language_name');
     }
 }
