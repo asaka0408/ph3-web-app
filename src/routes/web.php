@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/webapp', 'WebappController@index')->name('webapp');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
