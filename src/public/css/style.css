@@ -1,0 +1,458 @@
+.header {
+    height: 64px;
+    top: 0;
+    display: flex;
+    background-color: white;
+}
+
+.header_logo_week {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.header_logo_week img {
+    width: 120px;
+}
+
+.header_logo_week p {
+    margin-left: 30px;
+    color: #c1d5e2;
+    font-size: 1.6vw;
+}
+
+.header_record_and_post_btn {
+    margin-top: 12px;
+    margin-left: auto;
+    ;
+    width: 15vw;
+    height: 60%;
+    font-size: 1.3vw;
+    background: linear-gradient(to right, #0f71bc, #3ccfff);
+    color: azure;
+    border-radius: 30px;
+}
+
+body {
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+.page_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main_container {
+    margin: 0 auto;
+    width: 95%;
+    display: flex;
+    height: 80vh;
+    gap: 20px;
+}
+
+.time_bar_graf {
+    width: 50%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.time_container {
+    height: 32%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.time_each {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 33%;
+    margin-top: 20px;
+    list-style: none;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.time_each_title {
+    margin: 0;
+    height: 20px;
+    font-size: 2.0vw;
+    font-weight: bold;
+    color: #2a7bc1;
+}
+
+.time_each_hours {
+    font-size: 2.5vw;
+    margin: 0;
+    font-weight: bold;
+}
+
+.time_each_unit {
+    margin: 0;
+    font-size: 1.5vw;
+    color: #a7c5d8;
+}
+
+.bar_graf {
+    height: 70%;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.sircle_graf_container {
+    width: 50%;
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.sircle_graf_each {
+    width: 50%;
+    background-color: white;
+    list-style: none;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.sircle_graf_each_title {
+    font-size: 1.8vw;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.now_time_container {
+    margin-top: 20px;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+}
+
+.now_time_flame {
+    color: #3582c3;
+}
+
+.posted_container {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 5vw;
+    margin: auto;
+    border-radius: 30px;
+    width: 90vw;
+    height: 60vh;
+    background-color: white;
+    flex-direction: column;
+    padding-top: 10px;
+    z-index: 4;
+}
+
+
+.modal_container {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 5vw;
+    margin: auto;
+    border-radius: 30px;
+    width: 90vw;
+    background-color: white;
+    flex-direction: column;
+    padding-top: 10px;
+    z-index: 3;
+}
+
+.modal_back_btn {
+    margin-left: auto;
+    margin-right: 20px;
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* 丸みの度合い */
+    background: #f5f5f7;
+    /* ボタンの背景色 */
+}
+
+.modal_back_btn:hover {
+    cursor: pointer;
+}
+
+.modal_back_btn::before,
+.modal_back_btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    /* 棒の幅（太さ） */
+    height: 22px;
+    /* 棒の高さ */
+    border-radius: 20%;
+    background: #777777;
+    /* バツ印の色 */
+}
+
+.modal_back_btn::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal_back_btn::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.modal_form {
+    text-align: left;
+    display: flex;
+    gap: 40px;
+}
+
+.modal_form label {
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+.modal_form_first {
+    margin-left: 56px;
+    width: 45%;
+}
+
+.modal_form_date {
+    height: 20%;
+}
+
+.modal_form_date input {
+    margin-top: 10px;
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #f5f4f9;
+}
+
+.modal_form_contents {
+    margin-top: 20px;
+    height: 30%;
+}
+
+.modal_form_contents_selections {
+    margin-top: 15px;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.modal_form_contents_selections input {
+    background-color: #f5f4f9;
+    padding: 2%;
+    border-radius: 30px;
+}
+
+.modal_form_languages {
+    margin-top: 20px;
+    height: 50%;
+}
+
+.modal_form_languages_selections {
+    margin-top: 15px;
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.modal_form_languages_selections input {
+    background-color: #f5f4f9;
+    padding: 2%;
+    border-radius: 30px;
+}
+
+.modal_form_second {
+    width: 45%;
+    margin-right: 56px;
+}
+
+.modal_form_hours input {
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #f5f4f9;
+}
+
+.modal_form_twitter {
+    margin-top: 20px;
+}
+
+.modal_form_twitter textarea {
+    margin-top: 10px;
+    background-color: #f5f4f9;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.modal_form_twitter_btn {
+    margin-top: 15px;
+}
+
+.modal_record_and_post_btn {
+    margin: 30px auto;
+    padding: 2%;
+    width: 40%;
+    border-radius: 30px;
+    color: white;
+    background: linear-gradient(to right, #0f71bc, #3ccfff);
+}
+
+/********************************************
+  * Now Loading
+  ********************************************/
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.cv-spinner {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border: 4px #ddd solid;
+    border-top: 4px #999 solid;
+    border-radius: 50%;
+    animation: sp-anime 0.8s infinite linear;
+}
+
+@keyframes sp-anime {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+.is-hide {
+    display: none;
+}
+
+#background {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 2;
+}
+
+.sp_record_and_post_btn {
+    display: none;
+}
+
+
+@media screen and (max-width: 480px) {
+
+    /* 480px以下に適用されるCSS（スマホ用） */
+    .header_record_and_post_btn {
+        display: none;
+    }
+
+    .main_container {
+        margin: 0 auto;
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+    }
+
+    .time_bar_graf {
+        width: 100%;
+        margin-right: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sircle_graf_container {
+        margin-top: 20px;
+        width: 100%;
+        padding-left: 0%;
+        display: flex;
+        gap: 20px;
+    }
+
+    .time_bar_graf {
+        height: 35vh;
+    }
+
+    .time_each {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        height: 13vh;
+    }
+
+    .bar_graf {
+        margin-top: 8vh;
+        height: 20vh;
+    }
+
+    .sircle_graf_each {
+        height: 40vh;
+    }
+
+    .modal_container {
+        left: 0;
+        width: 100vw;
+    }
+
+    .modal_form {
+        flex-direction: column;
+    }
+
+    .modal_form_first {
+        margin-left: 2vw;
+        width: 95%;
+    }
+
+    .modal_form_second {
+        margin-left: 2vw;
+        width: 95%;
+    }
+
+    .modal_record_and_post_btn {
+        width: 90%;
+    }
+
+    .sp_record_and_post_btn {
+        display: block;
+        margin: 30px auto;
+        padding: 2%;
+        width: 40%;
+        border-radius: 30px;
+        color: white;
+        background: linear-gradient(to right, #0f71bc, #3ccfff);
+    }
+}
