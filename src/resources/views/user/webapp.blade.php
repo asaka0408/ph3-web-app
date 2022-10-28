@@ -22,23 +22,24 @@
 
 
     <main class="page_container">
+
         <div id="pageBackground"></div>
         <div class="main_container">
             <section class="time_bar_graf">
                 <ul class="time_container">
                     <li class="time_each">
                         <p class="time_each_title">Today</p><br>
-                        <p class="time_each_hours">3</p><br>
+                        <p class="time_each_hours">{{$study_day_time->pluck('day_time')[0]}}</p><br>
                         <p class="time_each_unit">hour</p>
                     </li>
                     <li class="time_each">
                         <p class="time_each_title">Month</p><br>
-                        <p class="time_each_hours">120</p><br>
+                        <p class="time_each_hours">{{$study_month_time->pluck('day_time')[0]}}</p><br>
                         <p class="time_each_unit">hour</p>
                     </li>
                     <li class="time_each">
                         <p class="time_each_title">Total</p><br>
-                        <p class="time_each_hours">1348</p><br>
+                        <p class="time_each_hours">{{$study_total_time->pluck('total_time')[0]}}</p><br>
                         <p class="time_each_unit">hour</p>
                     </li>
                 </ul>
@@ -46,6 +47,15 @@
                     <canvas id="myBarChart"></canvas>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
                     <script>
+                        let daytime = '{!! json_encode($day_times->pluck('day_time')) !!}';
+                        // クオテーションがエスケープ（文字化け的な）されるのを無効化するための｛!!!!｝
+                        // そのままだと、エンコードしたものが、jsとして動かない
+                        // まずは、jason文字列として渡して、パースでデコードする必要があるからシングルクオで囲む
+                        let daytime_study = JSON.parse(daytime);
+                        daytime_study = daytime_study.map(function(item) {
+                            return item = Number(item)
+                        })
+                        console.log(daytime_study);
                         var ctx = document.getElementById("myBarChart");
                         var myBarChart = new Chart(ctx, {
                             type: 'bar',
@@ -53,9 +63,7 @@
                                 labels: ['', 2, '', 4, '', 6, '', 8, '', 10, '', 12, '', 14, '', 16, '', 18, '', 20, '', 26, '', 28,'', 30],
                                 datasets: [{
                                     label: 'hours',
-                                    data: [3, 4, 5, 3, 0, 0, 4, 2, 2, 8, 8, 2, 2, 1, 7, 4, 4, 3, 3, 3, 2, 2, 6, 2, 2, 1, 1,
-                                        7, 8
-                                    ],
+                                    data: daytime_study,
                                     backgroundColor: "#3f8dcb"
                                 }]
                             },

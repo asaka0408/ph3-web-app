@@ -19,13 +19,181 @@ class WebappTableSeeder extends Seeder
             [
                 'time' => 4,
                 'comment' => 'いい感じ',
-                'created_at' => DateTime::dateTimeThisDecade(), // 追加
+                'created_at' => '2022-10-01', // 追加
                 'updated_at' => Carbon::now(),
             ],
             [
                 'time' => 3,
                 'comment' => 'まあまあ',
-                'created_at' => DateTime::dateTimeThisDecade(), // 追加
+                'created_at' => '2022-10-02 14:04:34', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-03', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-04', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-05', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-06', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-07', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-10',
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-10', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-11', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-12', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-13', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-14', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-15', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-16', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-17', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-18', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-19', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-20', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-21', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-22', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-23', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-24', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-25', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-26', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-27', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-28', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-29', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-30', // 追加
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'time' => 3,
+                'comment' => 'まあまあ',
+                'created_at' => '2022-10-31', // 追加
                 'updated_at' => Carbon::now(),
             ],
         ];
